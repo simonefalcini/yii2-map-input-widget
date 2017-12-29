@@ -1,7 +1,7 @@
 function MapInputWidgetManager()
 {
 
-    const widgetSelector = '.kolyunya-map-input-widget';
+    var widgetSelector = '.kolyunya-map-input-widget';
 
     var self = this;
 
@@ -51,11 +51,11 @@ function MapInputWidgetManager()
 function MapInputWidget ( widget )
 {
 
-    const inputSelector = 'input.kolyunya-map-input-widget-input';
+    var inputSelector = 'input.kolyunya-map-input-widget-input';
 
-    const searchBarSelector = 'input.kolyunya-map-input-widget-search-bar';
+    var searchBarSelector = 'input.kolyunya-map-input-widget-search-bar';
 
-    const canvasSelector = 'div.kolyunya-map-input-widget-canvas';
+    var canvasSelector = 'div.kolyunya-map-input-widget-canvas';
 
     var self = this;
 
@@ -105,22 +105,6 @@ function MapInputWidget ( widget )
             }
         );
 
-        google.maps.event.addListener
-        (
-            map,
-            'click',
-            function ( click )
-            {
-                self.setPosition
-                (
-                    {
-                        latitude: click.latLng.lat(),
-                        longitude: click.latLng.lng(),
-                    }
-                );
-            }
-        );
-
     };
 
     var initializeWidget = function()
@@ -150,7 +134,7 @@ function MapInputWidget ( widget )
                 }
             }
         );
-    }
+    };
 
     var makePointString = function ( pointData )
     {
@@ -229,8 +213,7 @@ function MapInputWidget ( widget )
         var point;
         if
         (
-            pointData.latitude !== undefined
-                &&
+            pointData.latitude !== undefined &&
             pointData.longitude !== undefined
         )
         {
@@ -243,7 +226,7 @@ function MapInputWidget ( widget )
             point = pointData;
         }
         return point;
-    }
+    };
 
     // Initializes widget
     this.initialize = function()
@@ -336,7 +319,7 @@ function MapInputWidget ( widget )
     };
 
 
-};
+}
 
 // A global instance of map inputs manager.
 // Use it to get references to widget instances.
